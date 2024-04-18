@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    {% block styles %}
+        <style>
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                background-color: #f9f9f9;
+            }
+
+            .header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+
+            th, td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+
+            .btn {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+
+            .btn:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    {% endblock styles %}
+
+        <div class="container">
+            <div class="header">
+                <h1>User Details</h1>
+            </div>
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>User ID</td>
+                    <td>{{ user.User_id }}</td>
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td>{{ user.first_name }}</td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td>{{ user.last_name }}</td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td>{{ user.dd }}/{{ user.mm }}/{{ user.yyyy }}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{ user.Email }}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{ user.house_number }}, {{ user.street_name }}, Apt {{ user.apt_number }}, {{ user.city }}, {{ user.state }}, {{ user.pincode }}</td>
+                </tr>
+            </table>
+            <a href="/view_order" class="btn">View Previous Orders</a>
+        </div>
+{% endblock body %}

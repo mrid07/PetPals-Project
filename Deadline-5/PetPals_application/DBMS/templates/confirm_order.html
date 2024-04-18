@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+Confirm Order
+{% endblock title %}
+
+{% block body %}
+<div class="container mt-4">
+  <h1>Confirm Order</h1>
+  <p>Please review your order details before placing the order.</p>
+  
+  <div class="row">
+    {% for cart_item in cart_items %}
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ products[cart_item.Product_ID].Name }}</h5>
+          <p class="card-text">Quantity: {{ cart_item.Quantity }}</p>
+          <p class="card-text">Price: ${{ products[cart_item.Product_ID].Price }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Total Price -->
+  <div class="row">
+    <div class="col-md-12">
+      <p>Total Price: ${{ total_price }}</p>
+    </div>
+  </div>
+
+  <!-- Place Order button -->
+  <div class="row">
+    <div class="col-md-12">
+      <form action="{{ url_for('confirm_order') }}" method="POST">
+        <input type="submit" value="Place Order" class="btn btn-success">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock body %}
