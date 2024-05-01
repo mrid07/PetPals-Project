@@ -25,7 +25,7 @@ PetPals is an online pet store project aimed at providing a comprehensive platfo
 5. Access the application in your web browser at `http://localhost:5000`.
 
 ## Contributors
-- Anushka Korlapati - 2022085
-- Abhinav Bagadi - 2022131
-- Mridul Goel - 2022303
-- Sujal Soni - 2022513
+<li><a href="https://github.com/anushka-korlapati">Anushka Korlapati</a> - 2022085</li>
+<li><a href="https://github.com/abhinavbagadi05">Abhinav Bagadi</a> - 2022131</li>
+<li><a href="https://github.com/mrid07">Mridul Goel</a> - 2022303</li>
+<li><a href="https://github.com/sujalsoni26">Sujal Soni</a> - 2022513</li>
