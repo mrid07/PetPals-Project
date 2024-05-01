@@ -9,6 +9,9 @@ PetPals is an online pet store project aimed at providing a comprehensive platfo
 - User account management and personalized recommendations.
 - Secure payment gateway integration.
 
+## User Guide
+<a href="Deadline-6\Deadline 6_ PetPals - User Guide (1).pdf" target="_blank">User Guide</a>
+
 
 ## Setup Instructions (Flask)
 1. Clone the repository: `git clone https://github.com/your-repo-url.git`

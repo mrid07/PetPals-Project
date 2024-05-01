@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}
+Services
+{% endblock title %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1>Available Services</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Service ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Duration (minutes)</th>
+                    <th>Pet Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in services %}
+                <tr>
+                    <td>{{ service.Service_ID }}</td>
+                    <td>{{ service.Name }}</td>
+                    <td>Rs {{ service.Price }}</td>
+                    <td>{{ service.Duration }}</td>
+                    <td>{{ service.Pet_Type }}</td>
+                    <td>
+                        <form action="{{ url_for('add_to_service_cart') }}" method="POST">
+                            <input type="hidden" name="service_id" value="{{ service.Service_ID }}">
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock body %}

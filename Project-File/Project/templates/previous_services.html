@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+Previous Orders
+{% endblock title %}
+
+{% block body %}
+<div class="container mt-4">
+  <h1>Previous Orders</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Service ID</th>
+        <th>Name</th>
+        <th>Pet Type</th>
+        <th>Price</th>
+        <th>Duration (Minutes)</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for service, status in ordered_services_with_status %}
+      <tr>
+        <td>{{ service.Service_ID }}</td>
+        <td>{{ service.Name }}</td>
+        <td>{{ service.Pet_Type }}</td>
+        <td>Rs {{ service.Price }}</td>
+        <td>{{ service.Duration }}</td>
+        <td>{{ status }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock body %}

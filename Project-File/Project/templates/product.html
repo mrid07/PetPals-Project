@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}
+Products
+{% endblock title %}
+
+{% block body %}
+<div class="container mt-4">
+  <h1>Products</h1>
+  <p>Welcome to our products page. Here you can find a list of our available products.</p>
+  
+  <div class="row">
+    {% for product in products %}
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <!-- Removed image -->
+        <div class="card-body">
+          <h5 class="card-title">{{ product.Name }}</h5>
+          <p class="card-text">{{ product.Description }}</p>
+          <ul class="list-unstyled">
+            <li>Brand: {{ product.Brand }}</li>
+            <li>Rating: {{ product.Rating }}</li>
+            <li>Type: {{ product.Product_Type }}</li>
+            <li>Category: {{ product.Pet_Category }}</li>
+            <li>Quantity: {{ product.Quantity }}</li>
+          </ul>
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- Add to Cart button -->
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <input type="hidden" name="product_id" value="{{ product.Product_ID }}">
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+            </form>
+            
+            <!-- Remove from Cart button with smaller size -->
+            <form action="{{ url_for('remove_from_cart_inProductPage') }}" method="POST">
+                <input type="hidden" name="product_id" value="{{ product.Product_ID }}">
+                <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock body %}

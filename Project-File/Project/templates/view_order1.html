@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+Products
+{% endblock title %}
+
+{% block body %}
+    <div style="color: green; font-size: 20px;">Order Placed Successfully</div>
+
+    <h1>Previous Orders</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Status</th>
+                <th>Quantity</th>
+                <th>Order Date</th>
+                <th>Product Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order_info in orders %}
+            <tr>
+                <td>{{ order_info.order.Order_ID }}</td>
+                <td>{{ order_info.order.Status }}</td>
+                <td>{{ order_info.order.Quantity }}</td>
+                <td>{{ order_info.order.Order_Date }}</td>
+                <td>{{ order_info.product_name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock body %}
+

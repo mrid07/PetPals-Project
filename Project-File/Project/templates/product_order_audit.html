@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+    Product Order Audit Trail
+{% endblock %}
+
+{% block body %}
+    <h1>Product Order Audit Trail</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Audit ID</th>
+                <th>Order ID</th>
+                <th>Operation Type</th>
+                <th>Operation Timestamp</th>
+                <th>User ID</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in audit_records %}
+            <tr>
+                <td>{{ record.audit_id }}</td>
+                <td>{{ record.order_id }}</td>
+                <td>{{ record.operation_type }}</td>
+                <td>{{ record.operation_timestamp }}</td>
+                <td>{{ record.user_id }}</td>
+                <td>{{ record.details }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock body%}
